@@ -40,12 +40,8 @@ class LoginController: UIViewController {
     }()
     
     private let loginButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        button.backgroundColor = .mainBlueTint
+        let button = AuthButton(type: .system)
         button.setTitle("Log in", for: .normal)
-        button.setTitleColor(UIColor(white: 1, alpha: 0.5), for: .normal)
-        button.layer.cornerRadius = 5
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
         return button
     }()
@@ -72,13 +68,8 @@ class LoginController: UIViewController {
     }
     
     
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
-    }
-    
     // MARK: - Selectors
     @objc func handleShowSignUp(){
-        print("Attempting to push controller...")
         let controller = SignUpController()
         navigationController?.pushViewController(controller, animated: true)
     }
@@ -86,7 +77,6 @@ class LoginController: UIViewController {
     // MARK: - Helper Functions
     func configureUI(){
         view.backgroundColor = .backgroundColor
-        
         view.addSubview(titleLabel)
         titleLabel.anchor(top: view.safeAreaLayoutGuide.topAnchor)
         titleLabel.centerX(inView: view)
