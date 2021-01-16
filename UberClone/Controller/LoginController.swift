@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Firebase
 
 class LoginController: UIViewController {
     
@@ -43,17 +44,17 @@ class LoginController: UIViewController {
         let button = AuthButton(type: .system)
         button.setTitle("Log in", for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
+        
+        button.addTarget(self, action: #selector(handleLogin), for: .touchUpInside)
         return button
     }()
     
     private let dontHaveAccountButton: UIButton = {
         let button = UIButton(type: .system)
         let attributedTitle = NSMutableAttributedString(string: "Don't have a account? ", attributes: [NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 16), NSAttributedString.Key.foregroundColor : UIColor.lightGray])
-        
         attributedTitle.append(NSAttributedString(string: "Sign up", attributes: [NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 16), NSAttributedString.Key.foregroundColor : UIColor.mainBlueTint]))
         
         button.addTarget(self, action: #selector(handleShowSignUp), for: .touchUpInside)
-        
         button.setAttributedTitle(attributedTitle, for: .normal)
         return button
     }()
@@ -69,12 +70,37 @@ class LoginController: UIViewController {
     
     
     // MARK: - Selectors
-    @objc func handleShowSignUp(){
+    
+    @objc func handleLogin() {
+        guard let email = emailTextField.text else { return }
+        guard let password = passwordTextField.text else { return }
+        
+        Auth.auth().signIn(withEmail: email, password: password) { (result, error) in
+            if let error = error {
+                print("DEBUG: Failed to log in with error \(error.localizedDescription)")
+            }
+            
+            let keyWindow = UIApplication.shared.connectedScenes
+                    .filter({$0.activationState == .foregroundActive})
+                    .map({$0 as? UIWindowScene})
+                    .compactMap({$0})
+                    .first?.windows
+                    .filter({$0.isKeyWindow}).first
+            
+            guard let controller = keyWindow?.rootViewController as? HomeController
+            else { return }
+            controller.configureUI()
+            self.dismiss(animated: true, completion: nil)
+        }
+    }
+    
+    @objc func handleShowSignUp() {
         let controller = SignUpController()
         navigationController?.pushViewController(controller, animated: true)
     }
     
     // MARK: - Helper Functions
+    
     func configureUI(){
         view.backgroundColor = .backgroundColor
         view.addSubview(titleLabel)

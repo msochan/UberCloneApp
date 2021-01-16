@@ -87,6 +87,7 @@ class SignUpController: UIViewController {
     }()
     
     // MARK: - Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -94,6 +95,7 @@ class SignUpController: UIViewController {
     }
     
     // MARK: - Selectors
+    
     @objc func handleSignUp() {
         guard let email = emailTextField.text else { return }
         guard let fullname = fullnameTextField.text else { return }
@@ -113,7 +115,19 @@ class SignUpController: UIViewController {
                           "accountType": accountTypeIndex] as [String : Any]
             
             Database.database(url: "https://ubertutorial-fb6a4-default-rtdb.europe-west1.firebasedatabase.app/").reference().child("users").child(uid).updateChildValues(values) { (error, ref) in
-                print("Successfully created user and saved data...")
+                
+                //print("Successfully created user and saved data...")
+                let keyWindow = UIApplication.shared.connectedScenes
+                        .filter({$0.activationState == .foregroundActive})
+                        .map({$0 as? UIWindowScene})
+                        .compactMap({$0})
+                        .first?.windows
+                        .filter({$0.isKeyWindow}).first
+                
+                guard let controller = keyWindow?.rootViewController as? HomeController
+                else { return }
+                controller.configureUI()
+                self.dismiss(animated: true, completion: nil)
             }
         }
     }
@@ -123,6 +137,7 @@ class SignUpController: UIViewController {
     }
     
     // MARK: - Helper Functions
+    
     func configureUI(){
         view.backgroundColor = .backgroundColor
         view.addSubview(titleLabel)

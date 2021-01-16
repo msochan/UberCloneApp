@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -17,7 +17,8 @@
 		4A396FAE257CFB860079E362 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A396FAD257CFB860079E362 /* LoginController.swift */; };
 		4A396FB2257D63EB0079E362 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A396FB1257D63EB0079E362 /* Extensions.swift */; };
 		4AB73D6A25B0403100DAEAC5 /* AuthButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB73D6925B0403100DAEAC5 /* AuthButton.swift */; };
-		4AD53D9225B122DF00D9C3BF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4AD53D9125B122DF00D9C3BF /* GoogleService-Info.plist */; };
+		4AE2578B25B21AC300F888B1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4AE2578A25B21AC300F888B1 /* GoogleService-Info.plist */; };
+		4AE2578E25B3593600F888B1 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE2578D25B3593600F888B1 /* HomeController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,7 +35,8 @@
 		4A396FAD257CFB860079E362 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		4A396FB1257D63EB0079E362 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		4AB73D6925B0403100DAEAC5 /* AuthButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthButton.swift; sourceTree = "<group>"; };
-		4AD53D9125B122DF00D9C3BF /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
+		4AE2578A25B21AC300F888B1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
+		4AE2578D25B3593600F888B1 /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
 		C3DDE20DF21FD29303636AE5 /* Pods_UberClone.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UberClone.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -80,8 +82,8 @@
 				4A396F92257CFA080079E362 /* SceneDelegate.swift */,
 				4A396F96257CFA080079E362 /* Main.storyboard */,
 				4A396F99257CFA080079E362 /* Assets.xcassets */,
+				4AE2578A25B21AC300F888B1 /* GoogleService-Info.plist */,
 				4A396F9B257CFA080079E362 /* LaunchScreen.storyboard */,
-				4AD53D9125B122DF00D9C3BF /* GoogleService-Info.plist */,
 				4A396F9E257CFA080079E362 /* Info.plist */,
 			);
 			path = UberClone;
@@ -107,6 +109,7 @@
 			children = (
 				4A396FAD257CFB860079E362 /* LoginController.swift */,
 				4A384984258640BC00EAD63B /* SignUpController.swift */,
+				4AE2578D25B3593600F888B1 /* HomeController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -140,7 +143,6 @@
 				22743F00A19DF7DCDFFD83B7 /* Pods-UberClone.debug.xcconfig */,
 				33DCA0828849FE3FC6FE2338 /* Pods-UberClone.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -204,7 +206,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4A396F9D257CFA080079E362 /* LaunchScreen.storyboard in Resources */,
-				4AD53D9225B122DF00D9C3BF /* GoogleService-Info.plist in Resources */,
+				4AE2578B25B21AC300F888B1 /* GoogleService-Info.plist in Resources */,
 				4A396F9A257CFA080079E362 /* Assets.xcassets in Resources */,
 				4A396F98257CFA080079E362 /* Main.storyboard in Resources */,
 			);
@@ -261,6 +263,7 @@
 			files = (
 				4A384985258640BC00EAD63B /* SignUpController.swift in Sources */,
 				4AB73D6A25B0403100DAEAC5 /* AuthButton.swift in Sources */,
+				4AE2578E25B3593600F888B1 /* HomeController.swift in Sources */,
 				4A396F91257CFA080079E362 /* AppDelegate.swift in Sources */,
 				4A396FAE257CFB860079E362 /* LoginController.swift in Sources */,
 				4A396F93257CFA080079E362 /* SceneDelegate.swift in Sources */,
